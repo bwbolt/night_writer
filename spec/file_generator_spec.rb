@@ -10,4 +10,10 @@ describe FileGenerator do
     expect(night_writer.incoming_file).to eq('message.txt')
     expect(night_writer.outgoing_file).to eq('braille.txt')
   end
+
+  it 'can print the creation line' do
+    night_writer = FileGenerator.new
+    allow(night_writer).to receive(:print_message).and_return("Created 'braille.txt' containing 256 characters")
+    expect(night_writer.print_message).to eq("Created 'braille.txt' containing 256 characters")
+  end
 end
