@@ -5,7 +5,7 @@ describe Dictionary do
   it 'exists' do
     dictionary = Dictionary.new
     expect(dictionary).to be_a(Dictionary)
-    expected = {
+    expected1 = {
       'a' => ['o.', '..', '..'],
       'b' => ['o.', 'o.', '..'],
       'c' => ['oo', '..', '..'],
@@ -34,6 +34,6 @@ describe Dictionary do
       'z' => ['o.', '.o', 'oo']
 
     }
-    expect(dictionary.english_to_brail).to eq(expected)
+    expect(dictionary.english_to_brail).to eq(expected1)
   end
 end
