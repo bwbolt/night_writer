@@ -20,7 +20,7 @@ describe FileGenerator do
     expect(night_writer.print_message).to eq("Created 'braille.txt' containing 1 characters")
   end
 
-  it 'can write to a brail.txt file' do
+  it 'can write to a english_to_english.txt file' do
     night_writer = FileGenerator.new
     allow(night_writer).to receive(:translate_to_brail).and_return('a')
     allow(night_writer).to receive(:outgoing_file_name).and_return('english_to_english.txt')
