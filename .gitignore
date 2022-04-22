@@ -11,6 +11,8 @@
 /tmp/
 /english_to_english.txt
 /english_to_brail.txt
+/english_sample.txt
+/braille_sample.txt
 
 # Used by dotenv library to load environment variables.
 # .env
