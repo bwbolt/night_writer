@@ -10,6 +10,9 @@ module Converter
       formatted_brail_hash[:row2] += brail_array[1]
       formatted_brail_hash[:row3] += brail_array[2]
     end
+    formatted_brail_hash[:row1] += '\n'
+    formatted_brail_hash[:row2] += '\n'
+    formatted_brail_hash[:row3] += '\n'
     formatted_brail_hash
   end
 end

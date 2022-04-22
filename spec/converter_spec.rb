@@ -16,7 +16,7 @@ describe Converter do
     night_writer = FileGenerator.new
     allow(night_writer).to receive(:read_incoming_file).and_return(['a'])
     allow(night_writer).to receive(:outgoing_file_name).and_return('english_to_brail.txt')
-    expected = { row1: 'o.', row2: '..', row3: '..' }
+    expected = { row1: 'o.\n', row2: '..\n', row3: '..\n' }
     expect(night_writer.format_brail).to eq(expected)
   end
 end
