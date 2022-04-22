@@ -13,6 +13,9 @@
 /english_to_brail.txt
 /english_sample.txt
 /braille_sample.txt
+/braille_sample_correct_format.txt
+/braille.txt
+/message.txt
 
 # Used by dotenv library to load environment variables.
 # .env
