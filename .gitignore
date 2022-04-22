@@ -10,6 +10,7 @@
 /test/version_tmp/
 /tmp/
 /english_to_english.txt
+/english_to_brail.txt
 
 # Used by dotenv library to load environment variables.
 # .env
