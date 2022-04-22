@@ -27,4 +27,12 @@ describe FileGenerator do
     night_writer.write_to_new_brail_file
     expect(File.read('english_to_english.txt').chomp).to eq('a')
   end
+
+  it 'can write to a english_to_brail.txt file' do
+    night_writer = FileGenerator.new
+    allow(night_writer).to receive(:translate_to_brail).and_return(['o.', '..', '..'])
+    allow(night_writer).to receive(:outgoing_file_name).and_return('english_to_brail.txt')
+    night_writer.write_to_new_brail_file
+    expect(File.read('english_to_brail.txt')).to eq('["o.", "..", ".."]')
+  end
 end
