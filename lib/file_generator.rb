@@ -15,7 +15,7 @@ class FileGenerator < Dictionary
   end
 
   def read_incoming_file
-    File.read(@incoming_file).chomp.split('')
+    File.read(@incoming_file).delete("\n")
   end
 
   def incoming_file_length
@@ -27,6 +27,10 @@ class FileGenerator < Dictionary
   end
 
   def write_to_new_brail_file
-    File.write(outgoing_file_name, translate_to_brail)
+    File.open(@outgoing_file, 'w') do |f|
+      f << format_brail[:row1]
+      f << format_brail[:row2]
+      f << format_brail[:row3]
+    end
   end
 end
