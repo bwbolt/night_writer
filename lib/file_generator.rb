@@ -1,4 +1,8 @@
-class FileGenerator
+require './lib/converter'
+require './lib/dictionary'
+
+class FileGenerator < Dictionary
+  include Converter
   attr_reader :incoming_file, :outgoing_file
 
   def initialize
@@ -11,15 +15,11 @@ class FileGenerator
   end
 
   def read_incoming_file
-    File.read(@incoming_file).chomp
+    File.read(@incoming_file).chomp.split('')
   end
 
   def incoming_file_length
     read_incoming_file.length
-  end
-
-  def translate_to_brail
-    incoming_file.map { |letter| english_to_brail[letter] }
   end
 
   def outgoing_file_name
