@@ -15,6 +15,6 @@ describe FileGenerator do
 
   it 'can print the creation line' do
     night_writer = FileGenerator.new
-    expect(night_writer.print_message).to eq("Created '' containing 4 characters")
+    expect(night_writer.print_message).to eq("Created '' containing 1048575 characters")
   end
 end
