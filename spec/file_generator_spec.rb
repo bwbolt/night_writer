@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start
 require 'rspec'
 require './lib/file_generator'
 
@@ -13,7 +15,6 @@ describe FileGenerator do
 
   it 'can print the creation line' do
     night_writer = FileGenerator.new
-    allow(night_writer).to receive(:print_message).and_return("Created 'braille.txt' containing 256 characters")
-    expect(night_writer.print_message).to eq("Created 'braille.txt' containing 256 characters")
+    expect(night_writer.print_message).to eq("Created '' containing 4 characters")
   end
 end
