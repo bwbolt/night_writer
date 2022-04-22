@@ -1,5 +1,5 @@
 require 'rspec'
-require './lib/file_generator
+require './lib/file_generator'
 
 describe FileGenerator do
   it 'exists with attributes' do
