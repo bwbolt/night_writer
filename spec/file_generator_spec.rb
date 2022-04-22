@@ -24,6 +24,18 @@ describe FileGenerator do
     expect(night_writer.read_incoming_file).to eq(['a'])
   end
 
+  it 'can give incoming file' do
+    ARGV.replace(['english_sample.txt', 'braille_sample.txt'])
+    night_writer = FileGenerator.new
+    expect(night_writer.incoming_file_length).to eq(1)
+  end
+
+  it 'can give outgoing file name' do
+    ARGV.replace(['english_sample.txt', 'braille_sample.txt'])
+    night_writer = FileGenerator.new
+    expect(night_writer.outgoing_file_name).to eq('braille_sample.txt')
+  end
+
   it 'can write to a english_to_english.txt file' do
     ARGV.replace(['english_sample.txt', 'braille_sample.txt'])
     night_writer = FileGenerator.new
