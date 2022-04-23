@@ -23,4 +23,10 @@ describe Converter do
     night_writer = FileGenerator.new
     expect(night_writer.line_length_converter).to eq([['o.'], ['..'], ['..']])
   end
+
+  it 'can read from a braille file' do
+    ARGV.replace(['braille_sample_for_test.txt', 'english_sample.txt'])
+    night_reader = FileGenerator.new
+    expect(night_reader.read_from_brail).to eq(['o.o.', '..o.', '....'])
+  end
 end

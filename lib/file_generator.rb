@@ -18,6 +18,14 @@ class FileGenerator < Dictionary
     File.read(@incoming_file).delete("\n")
   end
 
+  def read_from_brail
+    lines = []
+    File.readlines(@incoming_file).each do |line|
+      lines << line.delete!("\n")
+    end
+    lines
+  end
+
   def incoming_file_length
     read_incoming_file.length
   end
