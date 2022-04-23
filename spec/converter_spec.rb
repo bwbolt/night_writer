@@ -27,6 +27,13 @@ describe Converter do
   it 'can read from a braille file' do
     ARGV.replace(['braille_sample_for_test.txt', 'english_sample.txt'])
     night_reader = FileGenerator.new
-    expect(night_reader.read_from_brail).to eq(['o.o.', '..o.', '....'])
+    expected = [['o', '.', 'o', '.'], ['.', '.', 'o', '.'], ['.', '.', '.', '.']]
+    expect(night_reader.read_from_brail).to eq(expected)
+  end
+
+  it 'can convert braille to english letters' do
+    ARGV.replace(['braille_sample_for_test.txt', 'english_sample.txt'])
+    night_reader = FileGenerator.new
+    expect(night_reader.format_from_brail).to eq('ab')
   end
 end
