@@ -27,10 +27,13 @@ class FileGenerator < Dictionary
   end
 
   def write_to_new_brail_file
-    File.open(@outgoing_file, 'w') do |f|
-      f << format_brail[:row1]
-      f << format_brail[:row2]
-      f << format_brail[:row3]
+    a = Array(0..line_length_converter[0].length)
+    a.each do |count|
+      File.open(@outgoing_file, 'a') do |f|
+        f.puts line_length_converter[0][count]
+        f.puts line_length_converter[1][count]
+        f.puts line_length_converter[2][count]
+      end
     end
   end
 end
