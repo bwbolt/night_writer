@@ -17,4 +17,10 @@ describe Converter do
     expected = { row1: 'o.', row2: '..', row3: '..' }
     expect(night_writer.format_brail).to eq(expected)
   end
+
+  it 'can break lines down to be no longer than 80 characters' do
+    ARGV.replace(['english_sample.txt', 'braille_sample.txt'])
+    night_writer = FileGenerator.new
+    expect(night_writer.line_length_converter).to eq([['o.'], ['..'], ['..']])
+  end
 end
