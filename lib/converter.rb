@@ -17,6 +17,22 @@ module Converter
     a = formatted_brail_hash
   end
 
+  def format_from_brail
+    sentence = ''
+    readable_lines = read_from_brail
+    (readable_lines[0].length / 2).times do
+      letter = []
+      letter << readable_lines[0].shift(2)
+      letter << readable_lines[1].shift(2)
+      letter << readable_lines[2].shift(2)
+      english_letter = english_to_brail.select do |_character, value|
+        value.join('') == letter.flatten.join('')
+      end.keys[0]
+      sentence += english_letter
+    end
+    sentence
+  end
+
   def line_length_converter
     format_brail.map { |_row, value| value.scan(/.{1,80}/) }
   end
