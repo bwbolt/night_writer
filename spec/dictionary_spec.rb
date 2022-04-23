@@ -33,7 +33,8 @@ describe Dictionary do
       'w' => ['.o', 'oo', '.o'],
       'x' => ['oo', '..', 'oo'],
       'y' => ['oo', '.o', 'oo'],
-      'z' => ['o.', '.o', 'oo']
+      'z' => ['o.', '.o', 'oo'],
+      ' ' => ['..', '..', '..']
 
     }
     expect(dictionary.english_to_brail).to eq(expected1)

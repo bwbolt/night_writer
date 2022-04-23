@@ -23,7 +23,9 @@ class FileGenerator < Dictionary
     File.readlines(@incoming_file).each do |line|
       lines << line.delete!("\n")
     end
-    lines
+    lines_split = []
+    lines.each { |line| lines_split << line.split('') }
+    lines_split
   end
 
   def incoming_file_length
