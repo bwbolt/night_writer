@@ -1,6 +1,9 @@
-o.o.o.o.o...ooo..oo.
-oo.oo.o..o.....ooo.o
-....o.o.o...o.o.o.o.
+o.o.oo..ooo.ooo....oo.o..o.o..ooo..ooooo..o.oo...oo...o..ooooo..o.o.oooo..o.o.o.
+oo.o.o...o...o.o..oooo..ooo...oo.oo..ooo...o.o..oo.o..o.o..ooo..o....ooo..o..o.o
+....oo....oo.......o....o.o.....o...o.....o.o....o........o.........o.......o.o.
+oo...oo.o..o.o...oo.o...ooo.o.o...oooo..oo
+....oooo..ooo...oooo.o.....oo..o.....o..oo
+o....o....o.o...o.......o.o.oo....o.oo....
 
 
 
