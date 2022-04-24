@@ -29,4 +29,9 @@ describe Converter do
     night_reader = FileGenerator.new
     expect(night_reader.format_from_braille).to eq('ab')
   end
+
+  it 'can translate a single brail array into an english letter ' do
+    night_reader = FileGenerator.new
+    expect(night_reader.translate_to_english([['o.'], ['..'], ['..']])).to eq('a')
+  end
 end
