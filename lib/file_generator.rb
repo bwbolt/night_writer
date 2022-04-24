@@ -12,7 +12,7 @@ class FileGenerator
   end
 
   def print_message                                # Print command line reference created file
-    "Created '#{@outgoing_file}' containing #{incoming_file_length} characters"
+    p "Created '#{@outgoing_file}' containing #{incoming_file_length} characters"
   end
 
   def read_incoming_file                           # Read incoming text/english based file
