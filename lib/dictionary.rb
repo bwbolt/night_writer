@@ -1,11 +1,11 @@
 class Dictionary
-  attr_reader :english_to_brail
+  attr_reader :english_to_braille
 
   def initialize
-    @english_to_brail = english_to_brail
+    @english_to_braille = english_to_braille
   end
 
-  def english_to_brail
+  def english_to_braille
     {
       'a' => ['o.', '..', '..'],
       'b' => ['o.', 'o.', '..'],
