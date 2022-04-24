@@ -47,5 +47,8 @@ describe FileGenerator do
     ARGV.replace(['english_sample.txt', 'braille_sample_correct_format.txt'])
     night_writer = FileGenerator.new
     night_writer.write_to_new_brail_file
+    expected_long = File.readlines('braille_sample_correct_format.txt').map { |line| line.delete("\n") }
+    expected = expected_long.pop(5)
+    expect(expected).to eq(['..', '..', '', '', ''])
   end
 end
