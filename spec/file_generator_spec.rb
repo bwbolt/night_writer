@@ -45,24 +45,24 @@ describe FileGenerator do
   it 'can write to a english_to_english.txt file' do
     ARGV.replace(['english_sample.txt', 'braille_sample.txt'])
     night_writer = FileGenerator.new
-    night_writer.write_to_new_brail_file
+    night_writer.write_to_new_braille_file
     expect(File.read('english_to_english.txt').chomp).to eq('a')
   end
 
   it 'can write to a braille file in propper format' do
     ARGV.replace(['english_sample.txt', 'braille_sample_correct_format.txt'])
     night_writer = FileGenerator.new
-    night_writer.write_to_new_brail_file
+    night_writer.write_to_new_braille_file
     expected_long = File.readlines('braille_sample_correct_format.txt').map { |line| line.delete("\n") }
     expected = expected_long.pop(5)
     expect(expected).to eq(['..', '..', '', '', ''])
   end
 
-  it 'can read from a brail file' do
+  it 'can read from a braille file' do
     ARGV.replace(['braille_sample_for_test.txt', 'english_sample.txt'])
     night_reader = FileGenerator.new
     expected = [['o', '.', 'o', '.'], ['.', '.', 'o', '.'], ['.', '.', '.', '.']]
-    expect(night_reader.read_from_brail).to eq(expected)
+    expect(night_reader.read_from_braille).to eq(expected)
   end
 
   it 'can write to a original message file in english' do

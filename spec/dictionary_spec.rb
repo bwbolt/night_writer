@@ -37,6 +37,6 @@ describe Dictionary do
       ' ' => ['..', '..', '..']
 
     }
-    expect(dictionary.english_to_brail).to eq(expected1)
+    expect(dictionary.english_to_braille).to eq(expected1)
   end
 end
