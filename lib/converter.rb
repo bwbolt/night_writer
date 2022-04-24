@@ -17,14 +17,19 @@ module Converter
   def format_from_brail
     sentence = ''
     readable_lines = read_from_brail
-    (readable_lines[0].length / 2).times do
-      letter = []
-      letter << [readable_lines[0].shift(2), readable_lines[1].shift(2), readable_lines[2].shift(2)]
-      sentence += english_to_brail.select do |_character, value|
-        value.join('') == letter.flatten.join('')
-      end.keys[0]
+    until readable_lines == []
+      (readable_lines[0].length / 2).times do
+        letter = []
+        letter << [readable_lines[0].shift(2), readable_lines[1].shift(2), readable_lines[2].shift(2)]
+        sentence += english_to_brail.select do |_character, value|
+          value.join('') == letter.flatten.join('')
+        end.keys[0]
+      end
+      readable_lines.delete([])
     end
     sentence
+    # require 'pry'
+    # binding.pry
   end
 
   def line_length_converter
