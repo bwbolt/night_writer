@@ -1,11 +1,5 @@
-class Dictionary
-  attr_reader :english_to_braille
-
-  def initialize
-    @english_to_braille = english_to_braille
-  end
-
-  def english_to_braille
+module Dictionary
+  def english_to_braille_dictionary
     {
       'a' => ['o.', '..', '..'],
       'b' => ['o.', 'o.', '..'],
