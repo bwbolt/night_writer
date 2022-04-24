@@ -38,6 +38,7 @@ class FileGenerator < Dictionary
 
   def write_to_new_brail_file
     a = Array(0..line_length_converter[0].length)
+    File.write(@outgoing_file, '')
     a.each do |count|
       File.open(@outgoing_file, 'a') do |f|
         f.puts line_length_converter[0][count]
@@ -45,5 +46,9 @@ class FileGenerator < Dictionary
         f.puts line_length_converter[2][count]
       end
     end
+  end
+
+  def write_to_new_english_file
+    File.write(@outgoing_file, format_from_brail)
   end
 end

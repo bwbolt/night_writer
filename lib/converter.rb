@@ -11,10 +11,7 @@ module Converter
       formatted_brail_hash[:row2] += brail_array[1]
       formatted_brail_hash[:row3] += brail_array[2]
     end
-    formatted_brail_hash[:row1]
-    formatted_brail_hash[:row2]
-    formatted_brail_hash[:row3]
-    a = formatted_brail_hash
+    formatted_brail_hash
   end
 
   def format_from_brail
@@ -22,13 +19,10 @@ module Converter
     readable_lines = read_from_brail
     (readable_lines[0].length / 2).times do
       letter = []
-      letter << readable_lines[0].shift(2)
-      letter << readable_lines[1].shift(2)
-      letter << readable_lines[2].shift(2)
-      english_letter = english_to_brail.select do |_character, value|
+      letter << [readable_lines[0].shift(2), readable_lines[1].shift(2), readable_lines[2].shift(2)]
+      sentence += english_to_brail.select do |_character, value|
         value.join('') == letter.flatten.join('')
       end.keys[0]
-      sentence += english_letter
     end
     sentence
   end
