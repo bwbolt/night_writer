@@ -1,9 +1,15 @@
 module Converter
   def translate_to_braille                                                  # Takes incoming english letters and converts it to braille arrays
-    read_incoming_file.split('').map { |letter| english_to_braille_dictionary[letter] }
+    a = read_incoming_file.split('').map do |letter|
+      if english_to_braille_dictionary[letter].nil?
+        ['..', '..', '..']
+      else
+        english_to_braille_dictionary[letter]
+      end
+    end
   end
 
-  def format_braille                                                        # Takes braille arrays and seperates them into correct rows
+  def format_braille # Takes braille arrays and seperates them into correct rows
     formatted_braille_hash = Hash.new('')
     translate_to_braille.each do |braille_array|
       formatted_braille_hash[:row1] += braille_array[0]
@@ -19,11 +25,16 @@ module Converter
     until readable_lines == []
       letter = []
       letter << [readable_lines[0].shift(2), readable_lines[1].shift(2), readable_lines[2].shift(2)]
-      sentence += translate_to_english(letter)
+      if sentence[-3..-1] == 'CAP'
+        3.times { sentence = sentence.chop }
+        sentence += translate_to_english(letter).upcase
+      else
+        sentence += translate_to_english(letter)
+      end
       readable_lines.delete([])                                            # Whole block takes the first two characters from each line, compares the
     end                                                                    # resulting array to the "dictionary" and finds the english letter.
     sentence                                                               # When it has exhausted the first 3 line arrays, if there are more read,
-  end                                                                      # it deletes the first 3 empty arrays and starts over.
+  end # it deletes the first 3 empty arrays and starts over.
 
   def line_length_converter                                               # Takes the formatted hash and breaks the values down further to limit them
     format_braille.map do |_row, value|                                   # to 1-80 character strings, utilizing 80 character strings until there are
